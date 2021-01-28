@@ -6,7 +6,6 @@ import Description from './pages/Description'
 function App() {
     return (
         <div>
-            <h1>Github <span>Jobs</span></h1>
             <Switch>
                 <Route exact path="/">
                     <Home />

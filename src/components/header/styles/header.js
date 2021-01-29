@@ -2,6 +2,10 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     padding: 0 1rem;
+    @media(min-width: 1000px) {
+        max-width: 1040px;
+        margin: 0 auto;
+    }
 `;
 export const Frame = styled.div`
     background-image: url('backgroundImg.png');

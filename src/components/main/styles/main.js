@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.main`
-    padding-top: 50px; 
+    margin-top: 50px; 
     padding: 0 12px;
     @media(min-width: 1000px) {
         display: flex;
         flex-direction: row;
         max-width: 1040px;
-        margin: 0 auto;
+        margin: 50px auto;
         justify-content: space-between;
         padding: 0;
     }
@@ -55,7 +55,7 @@ export const JobTitle = styled.p`
     font-size: 18px;
 `;
 export const Logo = styled.img`
-    max-width: 90px;
+    width: 90px;
 `;
 export const JobTime = styled.p`
     margin: 0;
@@ -82,4 +82,12 @@ export const Company = styled.p`
     font-weight: 700;
     font-style: 12px;
     line-height: 14px;
+`;
+
+export const PublishedOn = styled.span`
+    padding-left: 2.5rem;
+    background-image: url('/icons/schedule-24px.svg');
+    background-position: 1rem;
+    background-repeat: no-repeat;
+    background-size: 1rem;
 `;

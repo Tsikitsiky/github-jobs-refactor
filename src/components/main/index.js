@@ -1,5 +1,6 @@
-import React from 'react'
-import { Container, InputText, InputTime, InputLocationCheck, Group, Logo, Item, Label, List, Pane, Location, JobTime, JobTitle, Company } from './styles/main'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Container, InputText, InputTime, InputLocationCheck, Group, Logo, Item, Label, List, Pane, Location, JobTime, JobTitle, Company, PublishedOn } from './styles/main'
 
 export default function Main({children, ...restProps}) {
     return <Container {...restProps}>{children}</Container>
@@ -31,8 +32,11 @@ Main.Label = function MainLabel({children, ...restProps}) {
 Main.List = function MainList({children, ...restProps}) {
     return <List {...restProps}>{children}</List>
 }
-Main.Item = function MainItem({children, ...restProps}) {
-    return <Item {...restProps}>{children}</Item>
+
+Main.Item = function MainLink({to, children, ...restProps}) {
+    return <Link to={to}>
+            <Item {...restProps}>{children}</Item>
+        </Link>
 }
 
 Main.Logo = function MainLogo({...restProps}) {
@@ -53,4 +57,8 @@ Main.JobTime = function MainJobTime({children, ...restProps}) {
 
 Main.Company = function MainCompany({children, ...restProps}) {
     return <Company {...restProps}>{children}</Company>
+}
+
+Main.PuplishedOn = function MainPublishedOn({children, ...restProps}) {
+    return <PublishedOn {...restProps}>{children}</PublishedOn>
 }

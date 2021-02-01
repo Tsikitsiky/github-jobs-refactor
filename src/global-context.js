@@ -18,7 +18,6 @@ function ContextProvider({children}) {
                         ...state,
                         loading: false,
                         jobList: action.data,
-                        
                     }
                 };
                 case "FILTER_BY_CITY": {
@@ -26,7 +25,25 @@ function ContextProvider({children}) {
                         ...state,
                         loading: false,
                         jobList: action.data,
-                        location: action.location
+                        location: action.location,
+                        searchInput: action.location
+                    }
+                };
+                case "SEARCH": {
+                    return {
+                        ...state,
+                        loading: false,
+                        jobList: action.data,
+                        location: "",
+                        searchInput: action.input
+                    }
+                };
+                case "GET_NEW_PAGE": {
+                    return {
+                        ...state,
+                        loading: false,
+                        jobList: action.data,
+                        location: "",
                     }
                 }
             
@@ -37,6 +54,7 @@ function ContextProvider({children}) {
             loading: true,
             jobList: [],
             location: "london",
+            searchInput: "",
         })
 
         useEffect(async() => {

@@ -8,7 +8,7 @@ export const Container = styled.div`
     }
 `;
 export const Frame = styled.div`
-    background-image: url('backgroundImg.png');
+    background-image: url('/backgroundImg.png');
     padding: 3rem 1rem;
     border-radius: 10px;
 `;

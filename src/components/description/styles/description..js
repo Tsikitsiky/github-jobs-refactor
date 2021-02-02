@@ -24,6 +24,7 @@ export const Pane = styled.div`
 export const Text = styled.div``;
 
 export const Title = styled.h2`
+    margin: 0;
 `;
 
 export const Type = styled.p`
@@ -60,6 +61,7 @@ export const PublishedOn = styled.p`
     background-repeat: no-repeat;
     background-size: 1rem;
     color: #B9BDCF;
+    margin: 0;
 `;
 
 export const Link = styled(ReachRouterLink)`

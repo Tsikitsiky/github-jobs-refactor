@@ -35646,7 +35646,7 @@ const Container = _styledComponents.default.div`
 `;
 exports.Container = Container;
 const Frame = _styledComponents.default.div`
-    background-image: url('backgroundImg.png');
+    background-image: url('/backgroundImg.png');
     padding: 3rem 1rem;
     border-radius: 10px;
 `;
@@ -54815,6 +54815,7 @@ exports.Pane = Pane;
 const Text = _styledComponents.default.div``;
 exports.Text = Text;
 const Title = _styledComponents.default.h2`
+    margin: 0;
 `;
 exports.Title = Title;
 const Type = _styledComponents.default.p`
@@ -54850,6 +54851,7 @@ const PublishedOn = _styledComponents.default.p`
     background-repeat: no-repeat;
     background-size: 1rem;
     color: #B9BDCF;
+    margin: 0;
 `;
 exports.PublishedOn = PublishedOn;
 const Link = (0, _styledComponents.default)(_reactRouterDom.Link)`

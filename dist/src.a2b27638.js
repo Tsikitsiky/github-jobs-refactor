@@ -35376,9 +35376,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const Container = _styledComponents.default.div`
     padding: 0 12px;
+    display: flex;
+    gap: 1rem;
     @media(min-width: 1000px) {
-        display: flex;
-        gap: 1rem;
         justify-content: flex-end;
         max-width: 1040px;
         margin: 50px auto;

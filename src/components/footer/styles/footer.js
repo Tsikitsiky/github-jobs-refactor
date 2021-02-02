@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     padding: 0 12px;
+    display: flex;
+    gap: 1rem;
     @media(min-width: 1000px) {
-        display: flex;
-        gap: 1rem;
         justify-content: flex-end;
         max-width: 1040px;
         margin: 50px auto;

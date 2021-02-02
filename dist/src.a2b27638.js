@@ -36170,7 +36170,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const Container = _styledComponents.default.main`
     margin-top: 50px; 
-    padding: 0 12px;
+    padding: 0 1rem;
     @media(min-width: 1000px) {
         display: flex;
         flex-direction: row;
@@ -36202,7 +36202,7 @@ const Item = _styledComponents.default.li`
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    gap: 1rem;
     align-items: center;
     padding: 1rem;
     background-color: #ffffff;
@@ -36233,6 +36233,9 @@ const JobTitle = _styledComponents.default.p`
 exports.JobTitle = JobTitle;
 const Logo = _styledComponents.default.img`
     width: 90px;
+    /* @media(min-width: 600px) {
+        width: 90px;
+    } */
 `;
 exports.Logo = Logo;
 const JobTime = _styledComponents.default.p`
@@ -36247,7 +36250,20 @@ const JobTime = _styledComponents.default.p`
 `;
 exports.JobTime = JobTime;
 const InputText = _styledComponents.default.input`
-    
+    max-width: 351px;
+    outline: none;
+    border: none;
+    height: 50px;
+    border-radius: 5px;
+    padding-left: 1rem;
+
+    ::placeholder {
+        padding-left: 2rem;
+        background-image: url('/icons/public-24px.svg');
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: 1rem;
+    }
 `;
 exports.InputText = InputText;
 const Group = _styledComponents.default.div`
@@ -54678,9 +54694,6 @@ function MainContainer() {
     }
   }
 
-  const today = new Date(Date.now());
-  const oneDay = 24 * 60 * 60 * 1000;
-  console.log(today);
   return /*#__PURE__*/_react.default.createElement(_components.Main, null, /*#__PURE__*/_react.default.createElement(_components.Main.Pane, null, /*#__PURE__*/_react.default.createElement(_components.Main.Label, null, /*#__PURE__*/_react.default.createElement(_components.Main.InputTime, {
     type: "checkbox",
     onChange: getFullTime
@@ -54690,28 +54703,28 @@ function MainContainer() {
     placeholder: "City, state",
     onChange: Search
   })), /*#__PURE__*/_react.default.createElement(_components.Main.Group, null, /*#__PURE__*/_react.default.createElement(_components.Main.Label, null, /*#__PURE__*/_react.default.createElement(_components.Main.InputLocationCheck, {
-    type: "checkbox",
+    type: "radio",
     checked: location === "new york",
     value: "new york",
     onChange: check
   }), "New York"), /*#__PURE__*/_react.default.createElement(_components.Main.Label, null, /*#__PURE__*/_react.default.createElement(_components.Main.InputLocationCheck, {
-    type: "checkbox",
+    type: "radio",
     checked: location === "london",
     value: "london",
     onChange: check
   }), "London"), /*#__PURE__*/_react.default.createElement(_components.Main.Label, null, /*#__PURE__*/_react.default.createElement(_components.Main.InputLocationCheck, {
-    type: "checkbox",
+    type: "radio",
     checked: location === "amsterdam",
     value: "amsterdam",
     onChange: check
   }), "Amsterdam"), /*#__PURE__*/_react.default.createElement(_components.Main.Label, null, /*#__PURE__*/_react.default.createElement(_components.Main.InputLocationCheck, {
-    type: "checkbox",
+    type: "radio",
     checked: location === "berlin",
     value: "berlin",
     onChange: check
   }), "Berlin"))), /*#__PURE__*/_react.default.createElement(_components.Main.Pane, null, /*#__PURE__*/_react.default.createElement(_components.Main.List, null, jobList?.map(item => /*#__PURE__*/_react.default.createElement(_components.Main.Item, {
     key: item.id,
-    to: `/description:${item.id}`
+    to: `/description/${item.id}`
   }, /*#__PURE__*/_react.default.createElement(_components.Main.Logo, {
     src: item.company_logo
   }), /*#__PURE__*/_react.default.createElement(_components.Main.Group, null, /*#__PURE__*/_react.default.createElement(_components.Main.Company, null, item.company), /*#__PURE__*/_react.default.createElement(_components.Main.JobTitle, null, item.title), /*#__PURE__*/_react.default.createElement(_components.Main.JobTime, null, item.type)), /*#__PURE__*/_react.default.createElement(_components.Main.Location, null, item.location, /*#__PURE__*/_react.default.createElement(_components.Main.PuplishedOn, null, (0, _dateFns.differenceInDays)(new Date(), new Date(item.created_at)), " days ago")))))));
@@ -54737,7 +54750,277 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function Home() {
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.default, null), /*#__PURE__*/_react.default.createElement(_main.default, null), /*#__PURE__*/_react.default.createElement(_footer.default, null));
 }
-},{"react":"node_modules/react/index.js","../containers/footer":"src/containers/footer.js","../containers/header":"src/containers/header.js","../containers/main":"src/containers/main.js"}],"src/pages/Description.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../containers/footer":"src/containers/footer.js","../containers/header":"src/containers/header.js","../containers/main":"src/containers/main.js"}],"src/components/description/styles/description..js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Group2 = exports.Group = exports.Company = exports.SideText = exports.SideTitle = exports.Link = exports.PublishedOn = exports.Location = exports.Logo = exports.Type = exports.Title = exports.Text = exports.Pane = exports.Container = void 0;
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _reactRouterDom = require("react-router-dom");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const Container = _styledComponents.default.div`
+    padding: 0 1rem;
+    @media(min-width: 1000px) {
+        display: flex;
+        flex-direction: row;
+        max-width: 1040px;
+        margin: 50px auto;
+        justify-content: space-between;
+        padding: 0;
+        gap: 50px;
+    }
+`;
+exports.Container = Container;
+const Pane = _styledComponents.default.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+`;
+exports.Pane = Pane;
+const Text = _styledComponents.default.div``;
+exports.Text = Text;
+const Title = _styledComponents.default.h2`
+`;
+exports.Title = Title;
+const Type = _styledComponents.default.p`
+    margin: 0;
+    font-weight: 700;
+    font-style: 12px;
+    line-height: 14px;
+    border: 1px solid #334680;
+    max-width: 70px;
+    max-height: 27px;
+    padding: 8px 16px;
+    border-radius: 5px;
+`;
+exports.Type = Type;
+const Logo = _styledComponents.default.img`
+    width: 42px;
+`;
+exports.Logo = Logo;
+const Location = _styledComponents.default.p`
+    margin: 0;
+    padding-left: 1.5rem;
+    background-image: url('/icons/public-24px.svg');
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 1rem;
+    color: #B9BDCF;
+`;
+exports.Location = Location;
+const PublishedOn = _styledComponents.default.p`
+    padding-left: 1.5rem;
+    background-image: url('/icons/schedule-24px.svg');
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 1rem;
+    color: #B9BDCF;
+`;
+exports.PublishedOn = PublishedOn;
+const Link = (0, _styledComponents.default)(_reactRouterDom.Link)`
+    font-weight: 500;
+    font-style: 14px;
+    color: #1E86FF;
+    line-height: 21px;
+`;
+exports.Link = Link;
+const SideTitle = _styledComponents.default.h3`
+    font-weight: 700;
+    font-style: 14px;
+    color: #B9BDCF;
+    line-height: 21px;
+    text-transform: uppercase;
+`;
+exports.SideTitle = SideTitle;
+const SideText = _styledComponents.default.p`
+    font-weight: 500;
+    font-style: 14px;
+    line-height: 21px;
+`;
+exports.SideText = SideText;
+const Company = _styledComponents.default.p`
+    font-weight: 700;
+    font-style: 18px;
+    line-height: 21px;
+    margin: 0;
+    `;
+exports.Company = Company;
+const Group = _styledComponents.default.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem; 
+    align-items: center;
+`;
+exports.Group = Group;
+const Group2 = _styledComponents.default.div``;
+exports.Group2 = Group2;
+},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/components/description/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Description;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _description = require("./styles/description.");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function Description({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.Container, restProps, children);
+}
+
+Description.Title = function DescriptionTitle({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.Title, restProps, children);
+};
+
+Description.Pane = function DescriptionPane({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.Pane, restProps, children);
+};
+
+Description.Type = function DescriptionType({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.Type, restProps, children);
+};
+
+Description.Logo = function DescriptionLogo({ ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.Logo, restProps);
+};
+
+Description.Location = function DescriptionLocation({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.Location, restProps, children);
+};
+
+Description.PublishedOn = function DescriptionPublishedOn({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.PublishedOn, restProps, children);
+};
+
+Description.Text = function DescriptionText({ ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.Text, restProps);
+};
+
+Description.Link = function DescriptionLink({
+  children,
+  to,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.Link, _extends({}, restProps, {
+    to: to
+  }), children);
+};
+
+Description.SideTitle = function DescriptionSideTitle({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.SideTitle, restProps, children);
+};
+
+Description.SideText = function DescriptionSideText({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.SideText, restProps, children);
+};
+
+Description.Company = function DescriptionCompany({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.Company, restProps, children);
+};
+
+Description.Group = function DescriptionGroup({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.Group, restProps, children);
+};
+
+Description.Group2 = function DescriptionGroup({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.Group2, restProps, children);
+};
+},{"react":"node_modules/react/index.js","./styles/description.":"src/components/description/styles/description..js"}],"src/containers/description.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = DescriptionContainer;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+var _description = _interopRequireDefault(require("../components/description"));
+
+var _globalContext = require("../global-context");
+
+var _dateFns = require("date-fns");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function DescriptionContainer() {
+  const {
+    state
+  } = (0, _react.useContext)(_globalContext.Context);
+  const {
+    jobList
+  } = state;
+  const {
+    id
+  } = (0, _reactRouterDom.useParams)();
+  const jobDetail = jobList.find(job => job.id === id);
+  console.log(jobDetail);
+  return /*#__PURE__*/_react.default.createElement(_description.default, null, /*#__PURE__*/_react.default.createElement(_description.default.Pane, null, /*#__PURE__*/_react.default.createElement(_description.default.Link, {
+    to: "/"
+  }, "\u2190 Go back to search"), /*#__PURE__*/_react.default.createElement(_description.default.SideTitle, null, "How to apply"), /*#__PURE__*/_react.default.createElement(_description.default.SideText, null, "Please email a copy of your resume and online portfolio to \xA0", /*#__PURE__*/_react.default.createElement(_description.default.Link, {
+    to: jobDetail.company_url
+  }, jobDetail.company_url))), /*#__PURE__*/_react.default.createElement(_description.default.Pane, null, /*#__PURE__*/_react.default.createElement(_description.default.Group, null, /*#__PURE__*/_react.default.createElement(_description.default.Title, null, jobDetail.title), /*#__PURE__*/_react.default.createElement(_description.default.Type, null, jobDetail.type)), /*#__PURE__*/_react.default.createElement(_description.default.PublishedOn, null, (0, _dateFns.differenceInDays)(new Date(), new Date(jobDetail.created_at)), " days ago"), /*#__PURE__*/_react.default.createElement(_description.default.Group, null, /*#__PURE__*/_react.default.createElement(_description.default.Logo, {
+    src: jobDetail.company_logo
+  }), /*#__PURE__*/_react.default.createElement(_description.default.Group2, null, /*#__PURE__*/_react.default.createElement(_description.default.Company, null, jobDetail.company), /*#__PURE__*/_react.default.createElement(_description.default.Location, null, jobDetail.location))), /*#__PURE__*/_react.default.createElement(_description.default.Text, {
+    dangerouslySetInnerHTML: {
+      __html: jobDetail.description
+    }
+  })));
+}
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../components/description":"src/components/description/index.js","../global-context":"src/global-context.js","date-fns":"node_modules/date-fns/esm/index.js"}],"src/pages/Description.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -54747,15 +55030,19 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _description = _interopRequireDefault(require("../containers/description"));
+
+var _header = _interopRequireDefault(require("../components/header"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Description() {
-  return /*#__PURE__*/_react.default.createElement("div", null, "Description page");
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.default, null, /*#__PURE__*/_react.default.createElement(_header.default.Logo, null, "Github", /*#__PURE__*/_react.default.createElement(_header.default.Tilte, null, " Jobs"))), /*#__PURE__*/_react.default.createElement(_description.default, null), /*#__PURE__*/_react.default.createElement("p", null, "Description"));
 }
 
 var _default = Description;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"src/App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../containers/description":"src/containers/description.js","../components/header":"src/components/header/index.js"}],"src/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -54778,7 +55065,7 @@ function App() {
     exact: true,
     path: "/"
   }, /*#__PURE__*/_react.default.createElement(_Home.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouter.Route, {
-    path: "/description:id"
+    path: "/description/:id"
   }, /*#__PURE__*/_react.default.createElement(_Description.default, null))));
 }
 
@@ -54855,7 +55142,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61596" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59016" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

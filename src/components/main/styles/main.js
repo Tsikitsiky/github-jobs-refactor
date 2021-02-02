@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.main`
     margin-top: 50px; 
-    padding: 0 12px;
+    padding: 0 1rem;
     @media(min-width: 1000px) {
         display: flex;
         flex-direction: row;
@@ -28,7 +28,7 @@ export const Item = styled.li`
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    gap: 1rem;
     align-items: center;
     padding: 1rem;
     background-color: #ffffff;
@@ -56,6 +56,9 @@ export const JobTitle = styled.p`
 `;
 export const Logo = styled.img`
     width: 90px;
+    /* @media(min-width: 600px) {
+        width: 90px;
+    } */
 `;
 export const JobTime = styled.p`
     margin: 0;
@@ -68,7 +71,20 @@ export const JobTime = styled.p`
     border-radius: 5px;
 `;
 export const InputText = styled.input`
-    
+    max-width: 351px;
+    outline: none;
+    border: none;
+    height: 50px;
+    border-radius: 5px;
+    padding-left: 1rem;
+
+    ::placeholder {
+        padding-left: 2rem;
+        background-image: url('/icons/public-24px.svg');
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: 1rem;
+    }
 `;
 export const Group = styled.div`
     display: flex;

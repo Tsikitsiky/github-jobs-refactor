@@ -29,10 +29,6 @@ export default function MainContainer() {
         }
     }
 
-    const today = new Date(Date.now())
-    const oneDay = 24 * 60 * 60 * 1000;
-    console.log(today);
-
     return (
         <Main>
             <Main.Pane>
@@ -46,19 +42,19 @@ export default function MainContainer() {
                 </Main.Group>
                 <Main.Group>
                     <Main.Label>
-                        <Main.InputLocationCheck type="checkbox" checked={location === "new york"} value="new york" onChange={check} />
+                        <Main.InputLocationCheck type="radio" checked={location === "new york"} value="new york" onChange={check} />
                         New York
                     </Main.Label>
                     <Main.Label>
-                        <Main.InputLocationCheck type="checkbox" checked={location === "london"} value="london" onChange={check} />
+                        <Main.InputLocationCheck type="radio" checked={location === "london"} value="london" onChange={check} />
                         London
                     </Main.Label>
                     <Main.Label>
-                        <Main.InputLocationCheck type="checkbox" checked={location === "amsterdam"} value="amsterdam" onChange={check} />
+                        <Main.InputLocationCheck type="radio" checked={location === "amsterdam"} value="amsterdam" onChange={check} />
                         Amsterdam
                     </Main.Label>
                     <Main.Label>
-                        <Main.InputLocationCheck type="checkbox" checked={location === "berlin"} value="berlin" onChange={check} />
+                        <Main.InputLocationCheck type="radio" checked={location === "berlin"} value="berlin" onChange={check} />
                         Berlin
                     </Main.Label>
                 </Main.Group>
@@ -66,7 +62,7 @@ export default function MainContainer() {
             <Main.Pane>
                 <Main.List>
                 {jobList ?.map(item => (
-                <Main.Item key={item.id} to = {`/description:${item.id}`}>
+                <Main.Item key={item.id} to ={`/description/${item.id}`}>
                     <Main.Logo src={item.company_logo} />
                     <Main.Group>
                         <Main.Company>{item.company}</Main.Company>

@@ -1,10 +1,19 @@
 import React from 'react'
+import DescriptionContainer from '../containers/description'
+import Header from '../components/header';
 
 function Description() {
     return (
-        <div>
-            Description page
-        </div>
+        <>
+            <Header>
+                <Header.Logo>
+                    Github
+                    <Header.Tilte> Jobs</Header.Tilte>
+                </Header.Logo>
+            </Header> 
+             <DescriptionContainer />
+             <p>Description</p>
+        </>
     )
 }
 

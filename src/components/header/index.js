@@ -16,9 +16,11 @@ Header.Logo = function HeaderLogo({children, ...restProps}) {
 Header.Tilte = function HeaderTilte({children, ...restProps}) {
     return <Title { ...restProps}>{children}</Title>
 }
+
 Header.Form = function HeaderForm({children, ...restProps}) {
     return <Form { ...restProps}>{children}</Form>
 }
+
 Header.Input = function HeaderInput({ ...restProps}) {
     return <Input { ...restProps} />
 }

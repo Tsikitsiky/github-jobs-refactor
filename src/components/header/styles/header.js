@@ -29,6 +29,15 @@ export const Input = styled.input`
     outline: none;
     border: none;
     padding-left: 1rem;
+
+    ::placeholder {
+        padding-left: 1.5rem;
+        background-image: url('/icons/work_outline-24px.svg');
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: 1rem;
+        color: #B9BDCF;
+    }
 `;
 export const Button = styled.button`
     height: 47px;

@@ -37,7 +37,7 @@ export default function MainContainer() {
                     Full time
                 </Main.Label>
                 <Main.Group>
-                    <Main.Label>LOCATION</Main.Label>
+                    <Main.Label style={{color:"#B9BDCF"}}>LOCATION</Main.Label>
                     <Main.InputText type="text" value={inputSearch} placeholder="City, state" onChange={Search}  />
                 </Main.Group>
                 <Main.Group>

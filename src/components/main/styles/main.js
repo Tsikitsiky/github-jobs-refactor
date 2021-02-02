@@ -25,9 +25,10 @@ export const List = styled.ul`
     padding: 0;
 `;
 export const Item = styled.li`
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+    display: grid;
+    grid-template-areas: 'img group'
+                         'location location';
+    grid-template-columns: 100px 1fr;
     gap: 1rem;
     align-items: center;
     padding: 1rem;
@@ -35,6 +36,7 @@ export const Item = styled.li`
     margin-bottom: 1rem;
     @media(min-width: 600px) {
         display: grid;
+        grid-template-areas: initial;
         grid-template-columns: auto 1fr auto;
         max-width: 700px;
         gap: 1rem;
@@ -49,13 +51,22 @@ export const Location = styled.p`
     background-position: left;
     background-repeat: no-repeat;
     background-size: 1rem;
+    width: fit-content;
+    color: #B9BDCF;
+    
+    @media(max-width: 600px) {
+        grid-area: location;
+    }
 `;
 export const JobTitle = styled.p`
     margin: 0;
     font-size: 18px;
 `;
 export const Logo = styled.img`
-    width: 90px;
+    width: 90px; 
+    @media(max-width: 600px) {
+        grid-area: img;
+    }
     /* @media(min-width: 600px) {
         width: 90px;
     } */
@@ -79,11 +90,12 @@ export const InputText = styled.input`
     padding-left: 1rem;
 
     ::placeholder {
-        padding-left: 2rem;
+        padding-left: 1.5rem;
         background-image: url('/icons/public-24px.svg');
         background-position: left;
         background-repeat: no-repeat;
         background-size: 1rem;
+        color: #B9BDCF;
     }
 `;
 export const Group = styled.div`
@@ -91,6 +103,10 @@ export const Group = styled.div`
     flex-direction: column;
     justify-content: space-between;
     gap: 1rem;
+
+    @media(max-width: 600px) {
+        grid-area: group;
+    }
 `;
 
 export const Company = styled.p`

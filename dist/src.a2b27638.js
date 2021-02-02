@@ -35671,6 +35671,15 @@ const Input = _styledComponents.default.input`
     outline: none;
     border: none;
     padding-left: 1rem;
+
+    ::placeholder {
+        padding-left: 1.5rem;
+        background-image: url('/icons/work_outline-24px.svg');
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: 1rem;
+        color: #B9BDCF;
+    }
 `;
 exports.Input = Input;
 const Button = _styledComponents.default.button`
@@ -36199,9 +36208,10 @@ const List = _styledComponents.default.ul`
 `;
 exports.List = List;
 const Item = _styledComponents.default.li`
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+    display: grid;
+    grid-template-areas: 'img group'
+                         'location location';
+    grid-template-columns: 100px 1fr;
     gap: 1rem;
     align-items: center;
     padding: 1rem;
@@ -36209,6 +36219,7 @@ const Item = _styledComponents.default.li`
     margin-bottom: 1rem;
     @media(min-width: 600px) {
         display: grid;
+        grid-template-areas: initial;
         grid-template-columns: auto 1fr auto;
         max-width: 700px;
         gap: 1rem;
@@ -36224,6 +36235,12 @@ const Location = _styledComponents.default.p`
     background-position: left;
     background-repeat: no-repeat;
     background-size: 1rem;
+    width: fit-content;
+    color: #B9BDCF;
+    
+    @media(max-width: 600px) {
+        grid-area: location;
+    }
 `;
 exports.Location = Location;
 const JobTitle = _styledComponents.default.p`
@@ -36232,7 +36249,10 @@ const JobTitle = _styledComponents.default.p`
 `;
 exports.JobTitle = JobTitle;
 const Logo = _styledComponents.default.img`
-    width: 90px;
+    width: 90px; 
+    @media(max-width: 600px) {
+        grid-area: img;
+    }
     /* @media(min-width: 600px) {
         width: 90px;
     } */
@@ -36258,11 +36278,12 @@ const InputText = _styledComponents.default.input`
     padding-left: 1rem;
 
     ::placeholder {
-        padding-left: 2rem;
+        padding-left: 1.5rem;
         background-image: url('/icons/public-24px.svg');
         background-position: left;
         background-repeat: no-repeat;
         background-size: 1rem;
+        color: #B9BDCF;
     }
 `;
 exports.InputText = InputText;
@@ -36271,6 +36292,10 @@ const Group = _styledComponents.default.div`
     flex-direction: column;
     justify-content: space-between;
     gap: 1rem;
+
+    @media(max-width: 600px) {
+        grid-area: group;
+    }
 `;
 exports.Group = Group;
 const Company = _styledComponents.default.p`
@@ -54697,7 +54722,11 @@ function MainContainer() {
   return /*#__PURE__*/_react.default.createElement(_components.Main, null, /*#__PURE__*/_react.default.createElement(_components.Main.Pane, null, /*#__PURE__*/_react.default.createElement(_components.Main.Label, null, /*#__PURE__*/_react.default.createElement(_components.Main.InputTime, {
     type: "checkbox",
     onChange: getFullTime
-  }), "Full time"), /*#__PURE__*/_react.default.createElement(_components.Main.Group, null, /*#__PURE__*/_react.default.createElement(_components.Main.Label, null, "LOCATION"), /*#__PURE__*/_react.default.createElement(_components.Main.InputText, {
+  }), "Full time"), /*#__PURE__*/_react.default.createElement(_components.Main.Group, null, /*#__PURE__*/_react.default.createElement(_components.Main.Label, {
+    style: {
+      color: "#B9BDCF"
+    }
+  }, "LOCATION"), /*#__PURE__*/_react.default.createElement(_components.Main.InputText, {
     type: "text",
     value: inputSearch,
     placeholder: "City, state",

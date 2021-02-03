@@ -12,7 +12,7 @@ function Description() {
                 </Header.Logo>
             </Header> 
              <DescriptionContainer />
-             <p>Description</p>
+             
         </>
     )
 }

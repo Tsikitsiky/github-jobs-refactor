@@ -16,10 +16,10 @@ export default function DescriptionContainer() {
             <Description.Pane>
                 <Description.Link to='/'>&#8592; Go back to search</Description.Link>
                 <Description.SideTitle>How to apply</Description.SideTitle>
-                <Description.SideText>
-                    Please email a copy of your resume and online portfolio to &nbsp;
-                    <Description.Link to={jobDetail.company_url}>{jobDetail.company_url}</Description.Link>
-                </Description.SideText>
+                <Description.SideText dangerouslySetInnerHTML={{ __html: jobDetail.how_to_apply }} />
+                    {/* Please email a copy of your resume and online portfolio to &nbsp;
+                    <Description.Link to={jobDetail.company_url}>{jobDetail.company_url}</Description.Link> */}
+                {/* </Description.SideText> */}
             </Description.Pane>
             <Description.Pane>
                 <Description.Group>

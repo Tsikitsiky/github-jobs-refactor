@@ -77,8 +77,9 @@ export const SideTitle = styled.h3`
     color: #B9BDCF;
     line-height: 21px;
     text-transform: uppercase;
+    margin: 0;
 `;
-export const SideText = styled.p`
+export const SideText = styled.div`
     font-weight: 500;
     font-style: 14px;
     line-height: 21px;

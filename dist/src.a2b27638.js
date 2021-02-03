@@ -54867,9 +54867,10 @@ const SideTitle = _styledComponents.default.h3`
     color: #B9BDCF;
     line-height: 21px;
     text-transform: uppercase;
+    margin: 0;
 `;
 exports.SideTitle = SideTitle;
-const SideText = _styledComponents.default.p`
+const SideText = _styledComponents.default.div`
     font-weight: 500;
     font-style: 14px;
     line-height: 21px;
@@ -55041,9 +55042,11 @@ function DescriptionContainer() {
   console.log(jobDetail);
   return /*#__PURE__*/_react.default.createElement(_description.default, null, /*#__PURE__*/_react.default.createElement(_description.default.Pane, null, /*#__PURE__*/_react.default.createElement(_description.default.Link, {
     to: "/"
-  }, "\u2190 Go back to search"), /*#__PURE__*/_react.default.createElement(_description.default.SideTitle, null, "How to apply"), /*#__PURE__*/_react.default.createElement(_description.default.SideText, null, "Please email a copy of your resume and online portfolio to \xA0", /*#__PURE__*/_react.default.createElement(_description.default.Link, {
-    to: jobDetail.company_url
-  }, jobDetail.company_url))), /*#__PURE__*/_react.default.createElement(_description.default.Pane, null, /*#__PURE__*/_react.default.createElement(_description.default.Group, null, /*#__PURE__*/_react.default.createElement(_description.default.Title, null, jobDetail.title), /*#__PURE__*/_react.default.createElement(_description.default.Type, null, jobDetail.type)), /*#__PURE__*/_react.default.createElement(_description.default.PublishedOn, null, (0, _dateFns.differenceInDays)(new Date(), new Date(jobDetail.created_at)), " days ago"), /*#__PURE__*/_react.default.createElement(_description.default.Group, null, /*#__PURE__*/_react.default.createElement(_description.default.Logo, {
+  }, "\u2190 Go back to search"), /*#__PURE__*/_react.default.createElement(_description.default.SideTitle, null, "How to apply"), /*#__PURE__*/_react.default.createElement(_description.default.SideText, {
+    dangerouslySetInnerHTML: {
+      __html: jobDetail.how_to_apply
+    }
+  })), /*#__PURE__*/_react.default.createElement(_description.default.Pane, null, /*#__PURE__*/_react.default.createElement(_description.default.Group, null, /*#__PURE__*/_react.default.createElement(_description.default.Title, null, jobDetail.title), /*#__PURE__*/_react.default.createElement(_description.default.Type, null, jobDetail.type)), /*#__PURE__*/_react.default.createElement(_description.default.PublishedOn, null, (0, _dateFns.differenceInDays)(new Date(), new Date(jobDetail.created_at)), " days ago"), /*#__PURE__*/_react.default.createElement(_description.default.Group, null, /*#__PURE__*/_react.default.createElement(_description.default.Logo, {
     src: jobDetail.company_logo
   }), /*#__PURE__*/_react.default.createElement(_description.default.Group2, null, /*#__PURE__*/_react.default.createElement(_description.default.Company, null, jobDetail.company), /*#__PURE__*/_react.default.createElement(_description.default.Location, null, jobDetail.location))), /*#__PURE__*/_react.default.createElement(_description.default.Text, {
     dangerouslySetInnerHTML: {
@@ -55068,7 +55071,7 @@ var _header = _interopRequireDefault(require("../components/header"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Description() {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.default, null, /*#__PURE__*/_react.default.createElement(_header.default.Logo, null, "Github", /*#__PURE__*/_react.default.createElement(_header.default.Tilte, null, " Jobs"))), /*#__PURE__*/_react.default.createElement(_description.default, null), /*#__PURE__*/_react.default.createElement("p", null, "Description"));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.default, null, /*#__PURE__*/_react.default.createElement(_header.default.Logo, null, "Github", /*#__PURE__*/_react.default.createElement(_header.default.Tilte, null, " Jobs"))), /*#__PURE__*/_react.default.createElement(_description.default, null));
 }
 
 var _default = Description;
@@ -55173,7 +55176,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59016" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57216" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
